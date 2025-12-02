@@ -1,0 +1,33 @@
+<div class="card">
+  <p-select
+    [options]="paises"
+    [(ngModel)]="paisSelecionado"
+    optionLabel="nome"
+    optionValue="id"
+    placeholder="Selecione um país"
+  >
+
+    <ng-template pTemplate="option" let-pais>
+      <div class="pais-option">
+        <img
+          class="bandeira"
+          [src]="'http://localhost:8080' + pais.bandeira"
+          alt="{{ pais.nome }}"
+        />
+        <span>{{ pais.nome }}</span>
+      </div>
+    </ng-template>
+
+
+    <ng-template pTemplate="selectedValue" let-pais>
+      <div class="pais-selected" *ngIf="pais">
+        <img
+          class="bandeira"
+          [src]="'http://localhost:8080' + pais.bandeira"
+          alt="{{ pais.nome }}"
+        />
+        <span>{{ pais.nome }}</span>
+      </div>
+    </ng-template>
+  </p-select>
+</div>

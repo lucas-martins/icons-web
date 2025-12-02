@@ -1,0 +1,48 @@
+.ml {
+  margin-left: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: end;
+}
+
+.lista-times {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.item-time {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.escudo-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.escudo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  /* garante que o escudo inteiro apareça */
+}
+
+
+.nome-time {
+  font-size: 18px;
+  font-weight: 600;
+}
+

@@ -1,0 +1,15 @@
+<div class="lista-times">
+  <div *ngFor="let t of times" class="item-time">
+    <div class="escudo-wrapper">
+      <img class="escudo" [src]="'http://localhost:8080' + t.escudo" alt="Escudo do time" />
+    </div>
+    <span class="nome-time">{{ t.nome }}</span>
+  </div>
+</div>
+
+
+<p-paginator
+  [rows]="tamanhoPagina"
+  [totalRecords]="totalRegistros"
+  (onPageChange)="aoMudarPagina($event)">
+</p-paginator>
