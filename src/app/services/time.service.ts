@@ -14,4 +14,8 @@ export class TimeService {
       `${this.baseUrl}?page=${pagina}`
     );
   }
+
+  public listarPorPais(idPais: number): Observable<Time[]> {
+    return this.http.get<Time[]>(`${this.baseUrl}/pais/${idPais}`);
+  }
 }

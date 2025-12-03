@@ -1,11 +1,19 @@
-.pais-option,
-.pais-selected {
+.filtros {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 
-.bandeira {
+.pais-option,
+.pais-selected,
+.time-option,
+.time-selected {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bandeira,
+.escudo {
   width: 24px;
   height: 24px;
   object-fit: contain;

@@ -1,12 +1,13 @@
-<div class="card">
+<div class="card filtros">
+  <!-- SELECT DE PAÍS -->
   <p-select
     [options]="paises"
     [(ngModel)]="paisSelecionado"
     optionLabel="nome"
     optionValue="id"
     placeholder="Selecione um país"
+    (onChange)="aoSelecionarPais($event.value)"
   >
-
     <ng-template pTemplate="option" let-pais>
       <div class="pais-option">
         <img
@@ -18,7 +19,6 @@
       </div>
     </ng-template>
 
-
     <ng-template pTemplate="selectedValue" let-pais>
       <div class="pais-selected" *ngIf="pais">
         <img
@@ -27,6 +27,38 @@
           alt="{{ pais.nome }}"
         />
         <span>{{ pais.nome }}</span>
+      </div>
+    </ng-template>
+  </p-select>
+
+  <!-- SELECT DE TIME -->
+  <p-select
+    [options]="times"
+    [(ngModel)]="timeSelecionado"
+    optionLabel="nome"
+    optionValue="id"
+    placeholder="Selecione um time"
+    [disabled]="!paisSelecionado"
+  >
+    <ng-template pTemplate="option" let-time>
+      <div class="time-option">
+        <img
+          class="escudo"
+          [src]="'http://localhost:8080' + time.escudo"
+          alt="{{ time.nome }}"
+        />
+        <span>{{ time.nome }}</span>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="selectedValue" let-time>
+      <div class="time-selected" *ngIf="time">
+        <img
+          class="escudo"
+          [src]="'http://localhost:8080' + time.escudo"
+          alt="{{ time.nome }}"
+        />
+        <span>{{ time.nome }}</span>
       </div>
     </ng-template>
   </p-select>

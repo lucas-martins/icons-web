@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { PaisService } from '../../services/pais.service';
 import { Pais } from '../../models/pais.model';
+import { Time } from '../../models/time.model';
+import { TimeService } from '../../services/time.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +17,15 @@ import { Pais } from '../../models/pais.model';
 })
 export class HomeComponent implements OnInit {
   paises: Pais[] = [];
+  times: Time[] = [];
 
   paisSelecionado: number | null = null;
+  timeSelecionado: number | null = null;
 
-  constructor(private readonly paisService: PaisService) {}
+  constructor(
+    private readonly paisService: PaisService,
+    private readonly timeService: TimeService
+  ) {}
 
   ngOnInit(): void {
     this.carregarPaises();
@@ -30,6 +37,20 @@ export class HomeComponent implements OnInit {
         this.paises = resp;
       },
       error: (err) => console.error('Erro ao listar países', err),
+    });
+  }
+
+    aoSelecionarPais(idPais: number | null): void {
+    this.timeSelecionado = null;
+    this.times = [];
+
+    if (!idPais) {
+      return;
+    }
+
+    this.timeService.listarPorPais(idPais).subscribe({
+      next: (resp) => (this.times = resp),
+      error: (err) => console.error('Erro ao listar times do país', err),
     });
   }
 }
