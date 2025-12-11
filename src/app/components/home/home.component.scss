@@ -42,4 +42,11 @@
 
 .jogador-box {
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 100%;
+  max-height: calc(100vh - 220px); /* ajusta conforme o layout */
+  overflow-y: auto;                /* scroll vertical interno */
+  overflow-x: hidden;              /* nunca scroll horizontal */
 }
+
